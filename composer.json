@@ -1,0 +1,73 @@
+{
+    "name": "olivcode/form-guard-laravel",
+    "description": "Laravel adapter for the Form Guard PHP form protection engine.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "olivcode/form-guard": "^1.0",
+        "illuminate/contracts": "^13.0",
+        "illuminate/http": "^13.0",
+        "illuminate/support": "^13.0",
+        "illuminate/routing": "^13.0",
+        "illuminate/session": "^13.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^11.0",
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "FormGuard\\Laravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FormGuard\\Laravel\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FormGuard\\Laravel\\FormGuardServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "@php vendor/bin/phpunit",
+        "check": "@php tools/check.php",
+        "test:distribution": [
+            "@composer archive --format=zip --dir=build/distribution --file=form-guard-laravel",
+            "@php tools/distribution.php",
+            "@php tools/check-export.php"
+        ]
+    },
+    "archive": {
+        "exclude": [
+            "/.git",
+            "/.github",
+            "/tests",
+            "/tools",
+            "/build",
+            "/vendor",
+            "/composer.lock",
+            "/.env",
+            "/.env.*",
+            "*.log",
+            "/.gitattributes",
+            "/.gitignore",
+            "/phpunit.xml",
+            "/.phpunit.cache"
+        ]
+    },
+    "config": {
+        "allow-plugins": false,
+        "sort-packages": true
+    },
+    "homepage": "https://github.com/olivCode/form-guard-laravel",
+    "support": {
+        "issues": "https://github.com/olivCode/form-guard-laravel/issues",
+        "source": "https://github.com/olivCode/form-guard-laravel",
+        "security": "https://github.com/olivCode/form-guard-laravel/security/policy"
+    }
+}
